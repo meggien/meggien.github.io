@@ -19,6 +19,7 @@ filterButtons.forEach(button => {
 // LIGHTBOX FUNCTION
 images.forEach(img => {
   img.addEventListener('click', () => {
+    console.log("🖼 Clicked:", img.src);
     lightbox.style.display = 'flex';
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
