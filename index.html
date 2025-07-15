@@ -3,63 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Skincare & Beauty</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      text-align: center;
-    }
-
-    h1 {
-      padding: 20px;
-    }
-
-    .filters {
-      margin-bottom: 20px;
-    }
-
-    .filters button {
-      margin: 5px;
-      padding: 10px 15px;
-      border: none;
-      background: #333;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-
-    .filters button:hover {
-      background: #555;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px;
-      padding: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Filter</h1>
+  <h1>Available Skincare & Beauty</h1>
 
   <!-- Filter Buttons -->
   <div class="filters">
@@ -85,25 +33,13 @@
     <!-- Add more images here -->
   </div>
 
-  <script>
-    const filterButtons = document.querySelectorAll('.filters button');
-    const images = document.querySelectorAll('.gallery img');
+    <!-- Lightbox, allows user to click and expand images-->
+  <div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  </div>
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-
-        images.forEach(img => {
-          const category = img.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
-            img.classList.remove('hidden');
-          } else {
-            img.classList.add('hidden');
-          }
-        });
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
