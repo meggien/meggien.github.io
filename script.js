@@ -1,5 +1,8 @@
 const filterButtons = document.querySelectorAll('.filters button');
 const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.lightbox .close');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
