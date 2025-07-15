@@ -3,6 +3,10 @@ const images = document.querySelectorAll('.gallery img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.lightbox .close');
+const prevBtn = document.querySelector('.lightbox .prev');
+const nextBtn = document.querySelector('.lightbox .next');
+
+let currentIndex = 0; // track which image is open
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -20,23 +24,44 @@ filterButtons.forEach(button => {
 });
 
 // LIGHTBOX FUNCTION
-images.forEach(img => {
+// ✅ Open lightbox
+images.forEach((img, index) => {
   img.addEventListener('click', () => {
-    console.log("🖼 Clicked:", img.src);
+    currentIndex = index; // save the clicked image index
+    showImage(currentIndex);
     lightbox.style.display = 'flex';
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
   });
 });
 
-// CLOSE LIGHTBOX
+// ✅ Show image by index
+function showImage(index) {
+  const img = images[index];
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+}
+
+// ✅ Close lightbox
 closeBtn.addEventListener('click', () => {
   lightbox.style.display = 'none';
 });
 
-// ALSO close lightbox if you click outside the image
+// ✅ Click outside to close
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) {
     lightbox.style.display = 'none';
   }
+});
+
+// ✅ Next arrow
+nextBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // avoid closing lightbox
+  currentIndex = (currentIndex + 1) % images.length; // loop around
+  showImage(currentIndex);
+});
+
+// ✅ Previous arrow
+prevBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
 });
