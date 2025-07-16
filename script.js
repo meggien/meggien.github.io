@@ -19,7 +19,7 @@ let displayedProducts = categoryType
 // Set title dynamically if there's a title element
 if (categoryTitle) {
   categoryTitle.textContent = categoryType
-    ? categoryType.toUpperCase() + " Products"
+    ? categoryType + " Products"
     : "All Products";
 }
 
