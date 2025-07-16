@@ -18,10 +18,20 @@ let displayedProducts = categoryType
 
 // Set title dynamically if there's a title element
 if (categoryTitle) {
-  categoryTitle.textContent = categoryType
-    ? categoryType + " Products"
-    : "All Products";
+    if (categoryType === "serum") {
+        categoryTitle.textContent = "Serum & Essence Products"; 
+    } else if (categoryType === "facemask") {
+        categoryTitle.textContent = "Face Masks";
+    } else if (categoryType === "misc") {
+        categoryTitle.textContent = "Miscellaneous";
+    } else if (categoryType) {
+        const formattedCategory = categoryType.charAt(0).toUpperCase() + categoryType.slice(1);
+        categoryTitle.textContent = `${formattedCategory} Products`;
+    } else {
+        categoryTitle.textContent = "All Products";
+    }
 }
+
 
 let currentIndex = 0;
 
