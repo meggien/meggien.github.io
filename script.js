@@ -66,3 +66,21 @@ nextBtn.addEventListener('click', (e) => {
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) lightbox.style.display = 'none';
 });
+
+// Keyboard support for arrow keys
+document.addEventListener('keydown', (e) => {
+  if (lightbox.style.display === 'flex') { // only if lightbox is open
+    if (e.key === 'ArrowLeft') {
+      // Prev image
+      currentIndex = (currentIndex - 1 + displayedProducts.length) % displayedProducts.length;
+      showImage(currentIndex);
+    } else if (e.key === 'ArrowRight') {
+      // Next image
+      currentIndex = (currentIndex + 1) % displayedProducts.length;
+      showImage(currentIndex);
+    } else if (e.key === 'Escape') {
+      // Close lightbox on ESC
+      lightbox.style.display = 'none';
+    }
+  }
+});
