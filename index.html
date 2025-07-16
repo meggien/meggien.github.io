@@ -9,22 +9,20 @@
 
   <h1>Available Skincare & Beauty</h1>
 
-  <!-- Filter Buttons -->
+<!-- Category Buttons -->
   <div class="filters">
-    <button data-filter="all">All</button>
-    <button data-filter="toner">Toner</button>
-    <button data-filter="serum">Serum/Essence</button>
-    <button data-filter="cream">Cream</button>
-    <button data-filter="face_mask">Face Masks</button>
-    <button data-filter="sunscreen">Sunscreen</button>
-    <button data-filter="cleanser">Cleanser</button>
-    <button data-filter="makeup">Makeup</button>
-    <button data-filter="hair">Hair</button>
-    <button data-filter="misc">Miscellaneous</button>
+    <a href="index.html"><button>All</button></a>
+    <a href="category.html?type=toner"><button>Toner</button></a>
+    <a href="category.html?type=serum"><button>Serum</button></a>
+    <a href="category.html?type=cleanser"><button>Cleanser</button></a>
+    <a href="category.html?type=cream"><button>Cream</button></a>
+    <a href="category.html?type=makeup"><button>Makeup</button></a>
+    <a href="category.html?type=hair"><button>Hair</button></a>
+    <a href="category.html?type=misc"><button>Misc</button></a>
   </div>
 
   <!-- Gallery -->
-  <div class="gallery">
+  <!-- <div class="gallery">
     <img src="images/IMG_5627.JPG" alt="Toner" data-category="toner">
     <img src="images/IMG_5628.JPG" alt="Toner" data-category="toner">
     <img src="images/IMG_5629.JPG" alt="Serum/Essence" data-category="serum">
@@ -69,9 +67,9 @@
     <img src="images/IMG_5670.JPG" alt="Hair" data-category="hair">
     <img src="images/IMG_5671.JPG" alt="Hair" data-category="hair">
 
-    <!-- Add more images here -->
-  </div>
+  </div> -->
 
+  <div class="gallery" id="gallery"></div>
     <!-- Lightbox, allows user to click and expand images-->
   <div class="lightbox" id="lightbox">
     <span class="close">&times;</span>
@@ -87,7 +85,7 @@
 
   </div>
 
-
+  <script src="products.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
