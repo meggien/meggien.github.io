@@ -63,4 +63,22 @@ const products = [
   { name: "Makeup", image: "images/IMG_5690.JPG", category: "makeup" },
   { name: "Makeup", image: "images/IMG_5691.JPG", category: "makeup" },
   { name: "Sunscreen", image: "images/IMG_5692.JPG", category: "sunscreen" },
+  { name: "Toner", image: "images/IMG_5694.JPG", category: "toner" },
+  { name: "Toner", image: "images/IMG_5695.JPG", category: "toner" },
+  { name: "Toner", image: "images/IMG_5696.JPG", category: "toner" },
+  { name: "Toner", image: "images/IMG_5697.JPG", category: "toner" },
+  { name: "Cleanser", image: "images/IMG_5698.JPG", category: "cleanser" },
+  { name: "Cleanser", image: "images/IMG_5699.JPG", category: "cleanser" },
+  { name: "Cleanser", image: "images/IMG_5700.JPG", category: "cleanser" },
+  { name: "Face Mask", image: "images/IMG_5701.JPG", category: "facemask" },
+  { name: "Face Mask", image: "images/IMG_5702.JPG", category: "facemask" },
+  { name: "Cream", image: "images/IMG_5703.JPG", category: "cream" },
+  { name: "Cream", image: "images/IMG_5704.JPG", category: "cream" },
+  { name: "Cream", image: "images/IMG_5705.JPG", category: "cream" },
+  { name: "Serum/Essence", image: "images/IMG_5706.JPG", category: "serum" },
+  { name: "Misc", image: "images/IMG_5707.JPG", category: "misc" },
+  { name: "Misc", image: "images/IMG_5708.JPG", category: "misc" },
+  { name: "Misc", image: "images/IMG_5709.JPG", category: "misc" }, // facial spray
+  { name: "Misc", image: "images/IMG_5710.JPG", category: "misc" }, // facial spray
 ];
+
