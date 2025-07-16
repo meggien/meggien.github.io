@@ -1,5 +1,5 @@
 const filterButtons = document.querySelectorAll('.filters button');
-const images = document.querySelectorAll('.gallery img');
+const allImages = document.querySelectorAll('.gallery img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.lightbox .close');
@@ -13,7 +13,7 @@ filterButtons.forEach(button => {
     button.addEventListener('click', () => {
     const filter = button.getAttribute('data-filter');
 
-    images.forEach(img => {
+    allImages.forEach(img => {
         const category = img.getAttribute('data-category');
         if (filter === 'all' || category === filter) {
         img.classList.remove('hidden');
