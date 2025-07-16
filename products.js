@@ -106,7 +106,6 @@ const products = [
     { name: "Face Mask", image: "images/IMG_5735.JPG", category: "facemask" },
     { name: "Face Mask", image: "images/IMG_5736.JPG", category: "facemask" },
     { name: "Face Mask", image: "images/IMG_5738.JPG", category: "facemask" },
-    { name: "Face Mask", image: "images/IMG_5739.JPG", category: "facemask" },
     { name: "Face Mask", image: "images/IMG_5740.JPG", category: "facemask" },
     { name: "Face Mask", image: "images/IMG_5741.JPG", category: "facemask" },
     { name: "Face Mask", image: "images/IMG_5742.JPG", category: "facemask" },
@@ -144,7 +143,6 @@ const products = [
     { name: "Misc", image: "images/IMG_5781.JPG", category: "misc" },
     { name: "Misc", image: "images/IMG_5782.JPG", category: "misc" },
     { name: "Hair", image: "images/IMG_5683.JPG", category: "hair" },
-    { name: "Misc", image: "images/IMG_5784.jpg", category: "misc" },
     { name: "Toner", image: "images/IMG_5785.JPG", category: "toner" },
     { name: "Toner", image: "images/IMG_5786.JPG", category: "toner" },
     { name: "Sunscreen", image: "images/IMG_5787.JPG", category: "sunscreen" },
@@ -152,5 +150,7 @@ const products = [
     { name: "Sunscreen", image: "images/IMG_5789.JPG", category: "sunscreen" },
     { name: "Cream", image: "images/IMG_5790.JPG", category: "cream" },
     { name: "Cream", image: "images/IMG_5791.JPG", category: "cream" },
+    { name: "Misc", image: "images/IMG_5792.JPG", category: "misc" },
+    { name: "Face Mask", image: "images/IMG_5793.JPG", category: "facemask" },
 ];
 
