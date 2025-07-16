@@ -6,6 +6,7 @@ const closeBtn = document.querySelector('.lightbox .close');
 const prevBtn = document.querySelector('.lightbox .prev');
 const nextBtn = document.querySelector('.lightbox .next');
 
+let visibleImages = Array.from(allImages); // starts with all images visible
 let currentIndex = 0; // track which image is open
 
 filterButtons.forEach(button => {
@@ -20,22 +21,30 @@ filterButtons.forEach(button => {
         img.classList.add('hidden');
         }
     });
+
+    visibleImages = Array.from(allImages).filter(img => !img.classList.contains('hidden'));
     });
 });
 
 // LIGHTBOX FUNCTION
 // ✅ Open lightbox
-images.forEach((img, index) => {
+allImages.forEach((img) => {
   img.addEventListener('click', () => {
-    currentIndex = index; // save the clicked image index
+    // ✅ Make sure visibleImages is correct before opening
+    visibleImages = Array.from(allImages).filter(img => !img.classList.contains('hidden'));
+
+    // ✅ Find this image's index in the *filtered* list
+    currentIndex = visibleImages.indexOf(img);
+
+    // ✅ Show it
     showImage(currentIndex);
     lightbox.style.display = 'flex';
   });
 });
 
-// ✅ Show image by index
+// ✅ Show image in lightbox
 function showImage(index) {
-  const img = images[index];
+  const img = visibleImages[index];
   lightboxImg.src = img.src;
   lightboxImg.alt = img.alt;
 }
@@ -55,13 +64,13 @@ lightbox.addEventListener('click', (e) => {
 // ✅ Next arrow
 nextBtn.addEventListener('click', (e) => {
   e.stopPropagation(); // avoid closing lightbox
-  currentIndex = (currentIndex + 1) % images.length; // loop around
+  currentIndex = (currentIndex + 1) % visibleImages.length;
   showImage(currentIndex);
 });
 
 // ✅ Previous arrow
 prevBtn.addEventListener('click', (e) => {
   e.stopPropagation();
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  currentIndex = (currentIndex - 1 + visibleImages.length) % visibleImages.length;
   showImage(currentIndex);
 });
