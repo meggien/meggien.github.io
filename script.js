@@ -34,7 +34,7 @@ if (categoryTitle) {
 }
 
 // Pagination settings
-const itemsPerPage = 40;
+const itemsPerPage = 30;
 let currentPage = 1;
 let totalPages = Math.ceil(displayedProducts.length / itemsPerPage);
 
@@ -52,6 +52,7 @@ function renderPage(page) {
     img.alt = p.name;
     img.dataset.full = p.image; // store full-size for lightbox
     img.dataset.index = start + index;
+    img.loading = "lazy";
 
     img.addEventListener('click', () => {
       currentIndex = start + index;
