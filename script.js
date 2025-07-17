@@ -1,5 +1,6 @@
 // Grab DOM elements
 const gallery = document.getElementById('gallery');
+const paginationContainer = document.getElementById('pagination');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.lightbox .close');
@@ -32,26 +33,70 @@ if (categoryTitle) {
     }
 }
 
+// Pagination settings
+const itemsPerPage = 40;
+let currentPage = 1;
+let totalPages = Math.ceil(displayedProducts.length / itemsPerPage);
 
-let currentIndex = 0;
+// Show products for current page
+function renderPage(page) {
+  gallery.innerHTML = "";
 
-// Build gallery
-displayedProducts.forEach((p, index) => {
-  const img = document.createElement('img');
-  img.src = p.image;
-  img.alt = p.name;
-  img.dataset.index = index;
-  img.loading = "lazy";
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const pageProducts = displayedProducts.slice(start, end);
 
-  img.addEventListener('click', () => {
-    currentIndex = index;
-    showImage(currentIndex);
-    lightbox.style.display = 'flex';
+  pageProducts.forEach((p, index) => {
+    const img = document.createElement('img');
+    img.src = p.thumbnail || p.image; // use thumbnail if available
+    img.alt = p.name;
+    img.dataset.full = p.image; // store full-size for lightbox
+    img.dataset.index = start + index;
+
+    img.addEventListener('click', () => {
+      currentIndex = start + index;
+      showImage(currentIndex);
+      lightbox.style.display = 'flex';
+    });
+
+    gallery.appendChild(img);
   });
 
-  gallery.appendChild(img);
-});
+  renderPaginationControls();
+}
 
+// Render pagination buttons
+function renderPaginationControls() {
+  paginationContainer.innerHTML = "";
+
+  const prevPageBtn = document.createElement("button");
+  prevPageBtn.textContent = "← Prev";
+  prevPageBtn.disabled = currentPage === 1;
+  prevPageBtn.addEventListener("click", () => changePage(currentPage - 1));
+
+  const nextPageBtn = document.createElement("button");
+  nextPageBtn.textContent = "Next →";
+  nextPageBtn.disabled = currentPage === totalPages;
+  nextPageBtn.addEventListener("click", () => changePage(currentPage + 1));
+
+  const pageInfo = document.createElement("span");
+  pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+  paginationContainer.appendChild(prevPageBtn);
+  paginationContainer.appendChild(pageInfo);
+  paginationContainer.appendChild(nextPageBtn);
+}
+
+// Change page
+function changePage(newPage) {
+  if (newPage >= 1 && newPage <= totalPages) {
+    currentPage = newPage;
+    renderPage(currentPage);
+  }
+}
+
+// Show image in lightbox
+let currentIndex = 0;
 function showImage(index) {
   const p = displayedProducts[index];
   lightboxImg.src = p.image;
@@ -95,3 +140,6 @@ document.addEventListener('keydown', (e) => {
     }
   }
 });
+
+// ✅ Initialize first page
+renderPage(currentPage);

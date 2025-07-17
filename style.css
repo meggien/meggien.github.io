@@ -116,3 +116,29 @@ h1 {
 .lightbox .next {
   right: 20px;
 }
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.pagination-controls button {
+  padding: 8px 12px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination-controls button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.pagination-controls span {
+  font-weight: bold;
+}
