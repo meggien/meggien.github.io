@@ -41,6 +41,7 @@ displayedProducts.forEach((p, index) => {
   img.src = p.image;
   img.alt = p.name;
   img.dataset.index = index;
+  img.loading = "lazy";
 
   img.addEventListener('click', () => {
     currentIndex = index;
